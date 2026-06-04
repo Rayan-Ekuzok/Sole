@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/Sole/validerPanier.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/confirmation.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/menu.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/doLogin.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/index.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/login.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/doRegister.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/logout.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/register.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/soumettreAvis.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/ajouterPanier.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/.gitattributes</file>
+            <file>file:/C:/xampp/htdocs/Sole/bdd.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/style.css</file>
+            <file>file:/C:/xampp/htdocs/Sole/mesCommandes.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/article.php</file>
+            <file>file:/C:/xampp/htdocs/Sole/slam_projet2.sql</file>
+            <file>file:/C:/xampp/htdocs/Sole/panier.php</file>
+        </group>
     </open-files>
 </project-private>
