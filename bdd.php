@@ -9,10 +9,23 @@ function hashMotDePasse($password) {
 }
 
 function getConnexion() {
+    // En local
     $host     = 'localhost';
     $dbname   = 'slam_projet2';
     $user     = 'root';
     $password = '';
+    
+    // Pour always data
+    //$host     = 'mysql-sole.alwaysdata.net';
+    //$dbname   = 'sole_bdd';
+    //$user     = 'sole_bdduser';
+    //$password = 'JeSuisUnUser1';
+    
+    
+    
+    
+    
+    
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
