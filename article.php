@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($modele['nom']) ?> — SOLE</title>
+    <title><?= $modele['nom'] ?> : SOLE</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -51,7 +51,7 @@ if (isset($_SESSION['user_id'])) {
 <div class="mise-en-page-produit">
     <div class="produit-image">
         <?php if (!empty($modele['image'])): ?>
-            <img src="<?= htmlspecialchars($modele['image']) ?>" alt="<?= htmlspecialchars($modele['nom']) ?>">
+            <img src="<?= $modele['image'] ?>" alt="<?= $modele['nom'] ?>">
         <?php else: ?>
             <span class="produit-image-placeholder"><?= strtoupper(substr($modele['nom'], 0, 2)) ?></span>
         <?php endif; ?>
