@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once 'bdd.php';
-
+include_once'bdd.php';
 function verifierFormulaire() {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header('Location: login.php');
@@ -21,7 +20,7 @@ function validerChamps($email, $password) {
 function authentifier($email, $password) {
     $user = getUserByEmail($email);
     if (!$user) return null;
-    if (hash('sha256', $password) !== $user['password']) return null;
+    if (hashMotDePasse($password) !== $user['password']) return null;
     return $user;
 }
 

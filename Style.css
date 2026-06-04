@@ -1,0 +1,1753 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 juin 2026, 03:54:06
+    Author     : fello
+*/
+
+/* ============================================================
+   SOLE — Feuille de style commune
+   Importée par toutes les pages via <link rel="stylesheet" href="style.css">
+   ============================================================ */
+
+/* ── Reset & Variables ─────────────────────────────────────── */
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Navigation (menu.php) ─────────────────────────────────── */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-nav {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: var(--noir);
+}
+
+.liens-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.liens-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--gris);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+
+.liens-nav a:hover,
+.liens-nav a.lien-actif {
+    color: var(--noir);
+}
+
+.btn-nav {
+    padding: 10px 24px;
+    background: var(--noir) !important;
+    color: var(--blanc) !important;
+    border-radius: 4px;
+    font-size: 12px !important;
+}
+
+.btn-nav:hover {
+    background: #333 !important;
+}
+
+.nom-utilisateur {
+    font-size: 13px;
+    color: var(--noir);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.btn-deconnexion {
+    font-size: 12px !important;
+    color: var(--gris) !important;
+    border: 1px solid var(--clair);
+    padding: 7px 14px;
+    border-radius: 4px;
+    transition: border-color .2s, color .2s !important;
+}
+
+.btn-deconnexion:hover {
+    border-color: var(--noir) !important;
+    color: var(--noir) !important;
+}
+
+.badge-panier {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--noir);
+    color: var(--blanc);
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger-nav {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.burger-nav span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--noir);
+    transition: all .25s;
+}
+
+/* ── Toast de déconnexion automatique ──────────────────────── */
+
+.toast-timeout {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: toastApparition .3s ease, toastDisparition .4s ease 5s forwards;
+    max-width: 480px;
+    width: 90%;
+}
+
+.toast-icone {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.toast-fermer {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: auto;
+    padding: 0 4px;
+    transition: color .2s;
+    flex-shrink: 0;
+}
+
+.toast-fermer:hover {
+    color: #fff;
+}
+
+@keyframes toastApparition {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes toastDisparition {
+    from { opacity: 1; }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* ── Page index.php — Catalogue ────────────────────────────── */
+
+.hero {
+    padding: 80px 48px 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.titre-hero {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+}
+
+.compteur-hero {
+    font-size: 13px;
+    color: var(--gris);
+    white-space: nowrap;
+    padding-bottom: 8px;
+}
+
+.catalogue {
+    padding: 0 48px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+}
+
+.carte {
+    background: var(--blanc);
+    border: 1px solid var(--clair);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow .2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.carte:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    z-index: 1;
+    position: relative;
+}
+
+.carte-image {
+    aspect-ratio: 4/3;
+    background: var(--clair);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carte-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.carte:hover .carte-image img {
+    transform: scale(1.04);
+}
+
+.carte-image-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: rgba(0,0,0,0.06);
+    letter-spacing: 4px;
+    user-select: none;
+}
+
+.carte-corps {
+    padding: 20px;
+}
+
+.carte-marque {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 4px;
+}
+
+.carte-nom {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.carte-libelle {
+    font-size: 13px;
+    color: var(--gris);
+    margin-bottom: 16px;
+}
+
+.carte-pied {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carte-prix {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.carte-categorie {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--clair);
+    border-radius: 20px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Page article.php — Fiche produit ──────────────────────── */
+
+.mise-en-page-produit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 73px);
+}
+
+.produit-image {
+    background: var(--clair);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 73px;
+    height: calc(100vh - 73px);
+    overflow: hidden;
+}
+
+.produit-image-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 15vw, 160px);
+    color: rgba(0,0,0,0.07);
+    letter-spacing: 8px;
+    user-select: none;
+}
+
+.produit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 32px;
+}
+
+.produit-infos {
+    padding: 56px 48px;
+    border-left: 1px solid var(--clair);
+}
+
+.produit-marque {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 8px;
+}
+
+.produit-nom {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.produit-meta {
+    font-size: 14px;
+    color: var(--gris);
+    margin-bottom: 24px;
+}
+
+.produit-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.etoiles {
+    font-size: 14px;
+}
+
+.valeur-note {
+    font-size: 13px;
+    color: var(--gris);
+}
+
+.produit-prix {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.note-prix {
+    font-size: 12px;
+    color: var(--gris);
+    margin-bottom: 40px;
+}
+
+.label-section {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 12px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.btn-option {
+    padding: 8px 18px;
+    border: 1px solid var(--clair);
+    background: transparent;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.btn-option:hover,
+.btn-option.actif {
+    border-color: var(--noir);
+    background: var(--noir);
+    color: var(--blanc);
+}
+
+.btn-option:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    border-color: var(--clair);
+    background: transparent;
+    color: var(--noir);
+}
+
+.produit-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--clair);
+}
+
+.btn-commander {
+    width: 100%;
+    padding: 18px;
+    background: var(--noir);
+    color: var(--blanc);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    margin-bottom: 12px;
+}
+
+.btn-commander:hover {
+    background: #222;
+}
+
+.btn-commander:active {
+    transform: scale(0.99);
+}
+
+.btn-commander:disabled {
+    background: var(--clair);
+    color: var(--gris);
+    cursor: not-allowed;
+}
+
+.info-stock {
+    text-align: center;
+    font-size: 13px;
+    color: var(--gris);
+    min-height: 20px;
+}
+
+.conteneur-quantite {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 24px;
+    border: 1px solid var(--clair);
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.btn-quantite {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--noir);
+    transition: background .15s;
+}
+
+.btn-quantite:hover {
+    background: var(--clair);
+}
+
+.champ-quantite {
+    width: 60px;
+    height: 44px;
+    border: none;
+    border-left: 1px solid var(--clair);
+    border-right: 1px solid var(--clair);
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background: transparent;
+    outline: none;
+}
+
+/* ── Avis clients (article.php) ────────────────────────────── */
+
+.section-avis {
+    padding: 64px 48px;
+    border-top: 1px solid var(--clair);
+}
+
+.entete-avis {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.titre-avis {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.grille-avis {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.carte-avis {
+    padding: 24px;
+    border: 1px solid var(--clair);
+    border-radius: 8px;
+}
+
+.entete-carte-avis {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.auteur-avis {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.date-avis {
+    font-size: 12px;
+    color: var(--gris);
+}
+
+.etoiles-avis {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.commentaire-avis {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.aucun-avis {
+    color: var(--gris);
+    font-size: 14px;
+}
+
+/* ── Formulaire d'avis (article.php) ──────────────────────── */
+
+.formulaire-avis {
+    background: #fafaf8;
+    border: 1px solid var(--clair);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.titre-formulaire-avis {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.champ-note {
+    margin-bottom: 24px;
+}
+
+.etoiles-interactives {
+    display: flex;
+    gap: 4px;
+    margin: 12px 0 8px;
+}
+
+.etoile-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--clair);
+    cursor: pointer;
+    padding: 0 2px;
+    transition: color .15s, transform .1s;
+    line-height: 1;
+}
+
+.etoile-btn:hover,
+.etoile-btn.active {
+    color: #F5A623;
+    transform: scale(1.15);
+}
+
+.note-label {
+    font-size: 12px;
+    color: var(--gris);
+    letter-spacing: 1px;
+}
+
+.champ-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: transparent;
+    border: 1px solid var(--clair);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--noir);
+    resize: vertical;
+    transition: border-color .2s;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.champ-textarea:focus {
+    border-color: var(--noir);
+}
+
+.btn-soumettre-avis {
+    padding: 12px 28px;
+    background: var(--noir);
+    color: var(--blanc);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background .2s;
+}
+
+.btn-soumettre-avis:hover {
+    background: #222;
+}
+
+.bloc-succes-avis {
+    background: #E6FAF0;
+    border-left: 3px solid #0A7A45;
+    color: #0A7A45;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-avis-existant {
+    font-size: 13px;
+    color: var(--gris);
+    padding: 12px 0;
+    margin-bottom: 32px;
+}
+
+/* ── Page login.php ────────────────────────────────────────── */
+
+.corps-login {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.panneau-gauche {
+    background: var(--noir);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px;
+    overflow: hidden;
+    position: relative;
+}
+
+.panneau-gauche::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+}
+
+.panneau-gauche .logo-nav {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--blanc);
+    letter-spacing: 4px;
+}
+
+.slogan-gauche {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.texte-grand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 120px);
+    color: rgba(255,255,255,0.06);
+    line-height: 0.9;
+    user-select: none;
+}
+
+.texte-bas-gauche {
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+}
+
+.panneau-droit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+}
+
+.conteneur-formulaire {
+    width: 100%;
+    max-width: 380px;
+}
+
+.titre-formulaire {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.sous-titre-formulaire {
+    font-size: 14px;
+    color: var(--gris);
+    margin-bottom: 40px;
+}
+
+.sous-titre-formulaire a {
+    color: var(--noir);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--noir);
+}
+
+.bloc-erreurs {
+    background: #fff0f0;
+    border-left: 3px solid #c0392b;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #c0392b;
+}
+
+.bloc-erreurs ul {
+    padding-left: 16px;
+}
+
+.champ {
+    margin-bottom: 20px;
+}
+
+.champ label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 8px;
+}
+
+.champ input {
+    width: 100%;
+    padding: 14px 16px;
+    background: transparent;
+    border: 1px solid var(--clair);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--noir);
+    transition: border-color .2s;
+    outline: none;
+}
+
+.champ input:focus {
+    border-color: var(--noir);
+}
+
+.btn-soumettre {
+    width: 100%;
+    padding: 16px;
+    background: var(--noir);
+    color: var(--blanc);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background .2s;
+}
+
+.btn-soumettre:hover {
+    background: #222;
+}
+
+.separateur {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0;
+    color: var(--clair);
+    font-size: 12px;
+}
+
+.separateur::before,
+.separateur::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--clair);
+}
+
+.lien-catalogue {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: var(--gris);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.lien-catalogue:hover {
+    color: var(--noir);
+}
+
+/* ── Page panier.php ───────────────────────────────────────── */
+
+.page-panier {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 48px;
+    align-items: start;
+}
+
+.titre-page {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.compteur-page {
+    font-size: 14px;
+    color: var(--gris);
+    margin-bottom: 40px;
+}
+
+.liste-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.carte-article {
+    display: grid;
+    grid-template-columns: 96px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background: #fafaf8;
+    border: 1px solid var(--clair);
+    border-radius: 8px;
+    transition: opacity .3s;
+}
+
+.carte-article.en-suppression {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all .3s;
+}
+
+.article-image {
+    width: 96px;
+    height: 96px;
+    background: var(--clair);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.article-image-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: rgba(0,0,0,0.1);
+}
+
+.article-infos {
+    min-width: 0;
+}
+
+.article-marque {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 2px;
+}
+
+.article-nom {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.article-meta {
+    font-size: 13px;
+    color: var(--gris);
+    margin-bottom: 12px;
+}
+
+.article-prix {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+}
+
+.article-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.ligne-quantite {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--clair);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.btn-qte {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--noir);
+    transition: background .15s;
+}
+
+.btn-qte:hover {
+    background: var(--clair);
+}
+
+.numero-qte {
+    width: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-left: 1px solid var(--clair);
+    border-right: 1px solid var(--clair);
+    background: transparent;
+    outline: none;
+}
+
+.btn-retirer {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color .2s;
+}
+
+.btn-retirer:hover {
+    color: var(--rouge);
+}
+
+/* Récapitulatif panier */
+
+.boite-recap {
+    position: sticky;
+    top: 89px;
+    border: 1px solid var(--clair);
+    border-radius: 12px;
+    padding: 28px;
+    background: #fafaf8;
+}
+
+.titre-recap {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+.ligne-recap {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--clair);
+}
+
+.ligne-recap:last-of-type {
+    border: none;
+}
+
+.label-recap {
+    color: var(--gris);
+}
+
+.total-recap {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.btn-valider {
+    width: 100%;
+    padding: 18px;
+    background: var(--noir);
+    color: var(--blanc);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: background .2s;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.btn-valider:hover {
+    background: #222;
+}
+
+.btn-valider.desactive {
+    background: var(--clair);
+    color: var(--gris);
+    pointer-events: none;
+}
+
+.note-recap {
+    font-size: 12px;
+    color: var(--gris);
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* ── Page mesCommandes.php ──────────────────────────────────── */
+
+.page-commandes {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+}
+
+.entete-page {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--clair);
+}
+
+.titre-principal {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.sous-titre-page {
+    font-size: 14px;
+    color: var(--gris);
+}
+
+.commande {
+    border: 1px solid var(--clair);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.entete-commande {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: #fafaf8;
+    border-bottom: 1px solid var(--clair);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.numero-commande {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.date-commande {
+    font-size: 13px;
+    color: var(--gris);
+}
+
+.droite-commande {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.badge-statut {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.total-commande {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+}
+
+.badge-remise {
+    font-size: 11px;
+    color: var(--vert);
+    background: #E6FAF0;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.btn-detail {
+    background: none;
+    border: 1px solid var(--clair);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--gris);
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all .15s;
+}
+
+.btn-detail:hover {
+    border-color: var(--noir);
+    color: var(--noir);
+}
+
+.lignes-commande {
+    padding: 0 24px;
+    display: none;
+}
+
+.lignes-commande.ouvert {
+    display: block;
+}
+
+.ligne-commande-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--clair);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ligne-commande-detail:last-child {
+    border-bottom: none;
+}
+
+.produit-ligne {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.detail-ligne {
+    font-size: 13px;
+    color: var(--gris);
+    margin-top: 2px;
+}
+
+.droite-ligne {
+    text-align: right;
+}
+
+.prix-ligne {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+}
+
+.quantite-ligne {
+    font-size: 12px;
+    color: var(--gris);
+}
+
+/* ── Page confirmation.php ─────────────────────────────────── */
+
+.corps-confirmation {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.overlay-confirmation {
+    position: fixed;
+    inset: 0;
+    background: var(--noir);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    z-index: 999;
+    animation: overlayDisparition 0.6s ease 3.2s forwards;
+}
+
+@keyframes overlayDisparition {
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+        pointer-events: none;
+    }
+}
+
+.cercle-validation {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: cercleApparition 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+}
+
+@keyframes cercleApparition {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cercle-validation::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    animation: cercleDessin 0.8s ease 0.3s both;
+}
+
+@keyframes cercleDessin {
+    from { background: conic-gradient(var(--vert) 0%, transparent 0%); }
+    to   { background: conic-gradient(var(--vert) 100%, transparent 0%); }
+}
+
+.cercle-validation::after {
+    content: '';
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: var(--noir);
+    position: absolute;
+}
+
+.icone-validation {
+    position: relative;
+    z-index: 1;
+}
+
+.icone-validation svg {
+    width: 40px;
+    height: 40px;
+    animation: iconeApparition 0.4s ease 0.9s both;
+}
+
+@keyframes iconeApparition {
+    from {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.icone-validation svg path {
+    stroke: var(--vert);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: tracerCoche 0.4s ease 1s forwards;
+}
+
+@keyframes tracerCoche {
+    to { stroke-dashoffset: 0; }
+}
+
+.titre-overlay {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 8vw, 72px);
+    color: var(--blanc);
+    letter-spacing: 4px;
+    text-align: center;
+    animation: monteApparition 0.5s ease 1.1s both;
+}
+
+.sous-titre-overlay {
+    font-size: 15px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    animation: monteApparition 0.5s ease 1.3s both;
+}
+
+.numero-overlay {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 3px;
+    animation: monteApparition 0.5s ease 1.5s both;
+}
+
+@keyframes monteApparition {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.barre-progression {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--vert);
+    animation: progression 3.2s linear forwards;
+}
+
+@keyframes progression {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+.page-detail-confirmation {
+    opacity: 0;
+    animation: pageApparition 0.6s ease 3.6s forwards;
+    width: 100%;
+    max-width: 600px;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+@keyframes pageApparition {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icone-detail {
+    width: 64px;
+    height: 64px;
+    background: #E6FAF0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 28px;
+}
+
+.titre-confirmation {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.sous-titre-confirmation {
+    font-size: 15px;
+    color: var(--gris);
+    margin-bottom: 24px;
+}
+
+.numero-commande-confirmation {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--vert);
+    background: #E6FAF0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 32px;
+}
+
+.recap-confirmation {
+    background: #fafaf8;
+    border: 1px solid var(--clair);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.article-recap {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--clair);
+}
+
+.article-recap:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.entete-article-recap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.nom-article-recap {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.prix-article-recap {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.detail-article-recap {
+    font-size: 12px;
+    color: var(--gris);
+}
+
+.separateur-recap {
+    height: 1px;
+    background: var(--clair);
+    margin: 16px 0;
+}
+
+.ligne-total-recap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-total-recap {
+    font-size: 13px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.valeur-total-recap {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+}
+
+.actions-confirmation {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-principal {
+    padding: 14px 32px;
+    background: var(--noir);
+    color: var(--blanc);
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    transition: background .2s;
+}
+
+.btn-principal:hover {
+    background: #222;
+}
+
+.btn-secondaire {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--noir);
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    border: 1px solid var(--clair);
+    transition: border-color .2s;
+}
+
+.btn-secondaire:hover {
+    border-color: var(--noir);
+}
+
+/* ── États vides (pages sans contenu) ──────────────────────── */
+
+.etat-vide {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 0;
+    color: var(--gris);
+}
+
+.etat-vide-grand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: var(--clair);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.btn-catalogue {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 32px;
+    background: var(--noir);
+    color: var(--blanc);
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.btn-catalogue:hover {
+    background: #222;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    .mise-en-page-produit {
+        grid-template-columns: 1fr;
+    }
+
+    .produit-image {
+        position: relative;
+        height: 320px;
+        top: 0;
+    }
+
+    .produit-infos {
+        border-left: none;
+        border-top: 1px solid var(--clair);
+        padding: 32px 24px;
+    }
+
+    .section-avis {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .page-panier {
+        padding-left: 24px;
+        padding-right: 24px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .boite-recap {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 16px 24px;
+    }
+
+    .burger-nav {
+        display: flex;
+    }
+
+    .liens-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--blanc);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border-bottom: 1px solid var(--clair);
+        padding: 8px 0;
+    }
+
+    .liens-nav.ouvert {
+        display: flex;
+    }
+
+    .liens-nav li {
+        width: 100%;
+    }
+
+    .liens-nav a,
+    .nom-utilisateur,
+    .btn-deconnexion {
+        padding: 12px 24px !important;
+        display: block;
+        width: 100%;
+    }
+
+    .badge-panier .badge {
+        top: 6px;
+        right: 6px;
+    }
+
+    .hero {
+        padding: 40px 24px 32px;
+    }
+
+    .catalogue {
+        padding: 0 24px 48px;
+    }
+
+    .corps-login {
+        grid-template-columns: 1fr;
+    }
+
+    .panneau-gauche {
+        display: none;
+    }
+
+    .panneau-droit {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-commandes {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 32px;
+    }
+
+    .carte-article {
+        grid-template-columns: 72px 1fr;
+    }
+
+    .article-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
