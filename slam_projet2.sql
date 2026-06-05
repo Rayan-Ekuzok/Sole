@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 04 juin 2026 à 05:56
+-- Généré le : ven. 05 juin 2026 à 13:27
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -356,7 +356,8 @@ CREATE TABLE `panier` (
 
 INSERT INTO `panier` (`Id_panier`, `quantite`, `Id_utilisateur`, `Id_exemplaire`) VALUES
 (8, 3, 6, 80),
-(9, 1, 6, 40);
+(9, 1, 6, 40),
+(10, 1, 7, 29);
 
 -- --------------------------------------------------------
 
@@ -555,7 +556,7 @@ ALTER TABLE `modèle`
 -- AUTO_INCREMENT pour la table `panier`
 --
 ALTER TABLE `panier`
-  MODIFY `Id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `taille`
