@@ -10,16 +10,16 @@ function hashMotDePasse($password) {
 
 function getConnexion() {
     // En local
-    //$host     = 'localhost';
-    //$dbname   = 'slam_projet2';
-    //$user     = 'root';
-    //$password = '';
+    $host     = 'localhost';
+    $dbname   = 'slam_projet2';
+    $user     = 'root';
+    $password = '';
     
     // Pour always data
-    $host     = 'mysql-sole.alwaysdata.net';
-    $dbname   = 'sole_bdd';
-    $user     = 'sole_bdduser';
-    $password = 'JeSuisUnUser1';
+    //$host     = 'mysql-sole.alwaysdata.net';
+    //$dbname   = 'sole_bdd';
+    //$user     = 'sole_bdduser';
+    //$password = 'JeSuisUnUser1';
     
     
     

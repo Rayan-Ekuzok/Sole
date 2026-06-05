@@ -13,7 +13,7 @@ foreach ($champs as $c) {
     $donnees[$c] = trim($_POST[$c] ?? '');
 }
 
-// ── Validation ────────────────────────────────────────────────
+// Validation ---------------------------------------
 $erreurs = [];
 
 if (empty($donnees['nom']))
@@ -48,7 +48,7 @@ if (empty($erreurs) && getUserByEmail($donnees['email'])) {
     $erreurs[] = "Cette adresse email est déjà associée à un compte.";
 }
 
-// ── Erreurs → retour formulaire ───────────────────────────────
+// en cas d'erreurs retour formulaire -------------------------------------------
 if (!empty($erreurs)) {
     $_SESSION['erreurs_register'] = $erreurs;
     // On repasse les données sauf les mots de passe
@@ -58,7 +58,7 @@ if (!empty($erreurs)) {
     exit;
 }
 
-// ── Création du compte ────────────────────────────────────────
+//  Création du compte 6666666666666666666666666
 $user = creerUtilisateur(
     $donnees['nom'],
     $donnees['prenom'],

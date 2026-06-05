@@ -22,7 +22,7 @@ unset($_SESSION['erreurs_login']);
         <div class="slogan-gauche">Votre boutique de chaussures</div>
     </div>
     <div class="texte-grand">STEP<br>INTO<br>STYLE</div>
-    <div class="texte-bas-gauche">© <?= date('Y') ?> SOLE.</div>
+    <div class="texte-bas-gauche">© <?php echo date('Y') ?> SOLE.</div>
 </div>
 
 <div class="panneau-droit">

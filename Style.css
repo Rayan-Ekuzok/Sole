@@ -7,18 +7,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : fello
 */
 
-/* ============================================================
-   SOLE — Feuille de style commune
-   Importée par toutes les pages via <link rel="stylesheet" href="style.css">
-   ============================================================ */
-
-/* ── Reset & Variables ─────────────────────────────────────── */
 
 body {
     font-family: 'DM Sans', sans-serif;
 }
 
-/* ── Navigation (menu.php) ─────────────────────────────────── */
+/* Navigation (menu.php) ---------------------------------- */
 
 nav {
     display: flex;
@@ -132,7 +126,7 @@ nav {
     transition: all .25s;
 }
 
-/* ── Toast de déconnexion automatique ──────────────────────── */
+/*   déconnexion  ---------------- */
 
 .toast-timeout {
     position: fixed;
@@ -194,7 +188,7 @@ nav {
     }
 }
 
-/* ── Page index.php — Catalogue ────────────────────────────── */
+/* // Page index.php / Catalogue ---------------------*/
 
 .hero {
     padding: 80px 48px 48px;
@@ -317,7 +311,7 @@ nav {
     letter-spacing: 1px;
 }
 
-/* ── Page article.php — Fiche produit ──────────────────────── */
+/*  Page article.php  --------------------------- */
 
 .mise-en-page-produit {
     display: grid;
@@ -534,7 +528,7 @@ nav {
     outline: none;
 }
 
-/* ── Avis clients (article.php) ────────────────────────────── */
+/* Avis clients (article.php) ------------------------------------ */
 
 .section-avis {
     padding: 64px 48px;
@@ -599,7 +593,7 @@ nav {
     font-size: 14px;
 }
 
-/* ── Formulaire d'avis (article.php) ──────────────────────── */
+/* Formulaire d'avis (article.php) ----------------------------- */
 
 .formulaire-avis {
     background: #fafaf8;
@@ -705,7 +699,7 @@ nav {
     margin-bottom: 32px;
 }
 
-/* ── Page login.php ────────────────────────────────────────── */
+/* Page login.php -------------------------------- */
 
 .corps-login {
     min-height: 100vh;
@@ -888,7 +882,7 @@ nav {
     color: var(--noir);
 }
 
-/* ── Page panier.php ───────────────────────────────────────── */
+/* Page panier.php ---------------------------------- */
 
 .page-panier {
     max-width: 1000px;
@@ -1125,7 +1119,7 @@ nav {
     margin-top: 12px;
 }
 
-/* ── Page mesCommandes.php ──────────────────────────────────── */
+/* Page mesCommandes.php ---------------------------------*/
 
 .page-commandes {
     max-width: 900px;
@@ -1275,7 +1269,7 @@ nav {
     color: var(--gris);
 }
 
-/* ── Page confirmation.php ─────────────────────────────────── */
+/* Page confirmation.php ---------------------------- */
 
 .corps-confirmation {
     min-height: 100vh;

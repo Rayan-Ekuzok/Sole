@@ -38,7 +38,7 @@ $est_panier = isset($c['lignes']);
     <div class="icone-detail">✓</div>
     <h1 class="titre-confirmation">Commande confirmée</h1>
     <p class="sous-titre-confirmation">Votre commande a bien été enregistrée.</p>
-    <div class="numero-commande-confirmation">Commande #<?= $c['id_commande'] ?></div>
+    <div class="numero-commande-confirmation">Commande #<?PHP ECHo $c['id_commande'] ?></div>
 
     <div class="recap-confirmation">
         <?php if ($est_panier): ?>
@@ -49,18 +49,18 @@ $est_panier = isset($c['lignes']);
                     <span class="prix-article-recap"><?= number_format($l['sous_total'], 2, ',', ' ') ?> €</span>
                 </div>
                 <div class="detail-article-recap">
-                    <?= htmlspecialchars($l['taille']) ?> · <?= htmlspecialchars($l['couleur']) ?> · Qté <?= $l['quantite'] ?> · <?= number_format($l['prix_unitaire'], 2, ',', ' ') ?> € /u
+                    <?PHP ECHO $l['taille'] ?> · <?PHP ECHO $l['couleur'] ?> · Qté <?PHP ECHO $l['quantite'] ?> · <?PHP ECHO number_format($l['prix_unitaire'], 2, ',', ' ') ?> € /u
                 </div>
             </div>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="article-recap">
                 <div class="entete-article-recap">
-                    <span class="nom-article-recap"><?= htmlspecialchars($c['modele']) ?></span>
-                    <span class="prix-article-recap"><?= number_format($c['montant_total'], 2, ',', ' ') ?> €</span>
+                    <span class="nom-article-recap"><?PHP ECHO $c['modele'] ?></span>
+                    <span class="prix-article-recap"><?PHP ECHO number_format($c['montant_total'], 2, ',', ' ') ?> €</span>
                 </div>
                 <div class="detail-article-recap">
-                    <?= htmlspecialchars($c['taille']) ?> · <?= htmlspecialchars($c['couleur']) ?> · Qté <?= $c['quantite'] ?>
+                    <?PHP ECHO $c['taille'] ?> · <?PHP ECHO $c['couleur'] ?> · Qté <?PHP ECHO $c['quantite'] ?>
                 </div>
             </div>
         <?php endif; ?>
@@ -68,7 +68,7 @@ $est_panier = isset($c['lignes']);
         <div class="separateur-recap"></div>
         <div class="ligne-total-recap">
             <span class="label-total-recap">Total</span>
-            <span class="valeur-total-recap"><?= number_format($c['montant_total'], 2, ',', ' ') ?> €</span>
+            <span class="valeur-total-recap"><?PHP ECHO number_format($c['montant_total'], 2, ',', ' ') ?> €</span>
         </div>
     </div>
 

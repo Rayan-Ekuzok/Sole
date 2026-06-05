@@ -55,7 +55,7 @@ unset($_SESSION['erreurs_panier']);
         <strong>Stock insuffisant</strong>
         <ul class="liste-erreurs-stock">
             <?php foreach ($erreurs_panier as $e): ?>
-                <li><?= htmlspecialchars($e) ?></li>
+                <li><?php echo $e ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -91,16 +91,16 @@ unset($_SESSION['erreurs_panier']);
                 </div>
 
                 <div class="article-infos">
-                    <div class="article-marque"><?= htmlspecialchars($a['marque']) ?></div>
-                    <div class="article-nom"><?= htmlspecialchars($a['modele']) ?></div>
-                    <div class="article-meta"><?= htmlspecialchars($a['taille']) ?> · <?= htmlspecialchars($a['couleur']) ?></div>
-                    <div class="article-prix"><?= number_format($a['prix_final'], 2, ',', ' ') ?> € / unité</div>
+                    <div class="article-marque"><?PHP ECHO $a['marque'] ?></div>
+                    <div class="article-nom"><?PHP ECHO $a['modele'] ?></div>
+                    <div class="article-meta"><?PHP ECHO $a['taille'] ?> · <?PHP ECHO $a['couleur'] ?></div>
+                    <div class="article-prix"><?PHP ECHO number_format($a['prix_final'], 2, ',', ' ') ?> € / unité</div>
                 </div>
 
                 <div class="article-actions">
                     <div class="ligne-quantite">
                         <button class="btn-qte" onclick="changerQuantite(<?= $a['Id_panier'] ?>, -1)">−</button>
-                        <input class="numero-qte" id="qte-<?= $a['Id_panier'] ?>" type="number" value="<?= $a['quantite'] ?>" min="1" readonly>
+                        <input class="numero-qte" id="qte-<?PHP ECHO $a['Id_panier'] ?>" type="number" value="<?= $a['quantite'] ?>" min="1" readonly>
                         <button class="btn-qte" onclick="changerQuantite(<?= $a['Id_panier'] ?>, +1)">+</button>
                     </div>
                     <button class="btn-retirer" onclick="supprimerArticle(<?= $a['Id_panier'] ?>)">✕ Retirer</button>
@@ -113,8 +113,8 @@ unset($_SESSION['erreurs_panier']);
     <div class="boite-recap">
         <div class="titre-recap">Récapitulatif</div>
         <?php foreach ($articles as $a): ?>
-        <div class="ligne-recap" id="recap-<?= $a['Id_panier'] ?>">
-            <span class="label-recap"><?= htmlspecialchars($a['modele']) ?> ×<?= $a['quantite'] ?></span>
+        <div class="ligne-recap" id="recap-<?PHP ECHO $a['Id_panier'] ?>">
+            <span class="label-recap"><?PHP ECHO $a['modele'] ?> ×<?PHP ECHO $a['quantite'] ?></span>
             <span><?= number_format($a['sous_total'], 2, ',', ' ') ?> €</span>
         </div>
         <?php endforeach; ?>

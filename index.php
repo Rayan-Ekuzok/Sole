@@ -30,20 +30,20 @@ $modeles = getModeles();
         </div>
     <?php else: ?>
         <?php foreach ($modeles as $m): ?>
-        <a href="article.php?id=<?= $m['Id_modèle'] ?>" class="carte">
+        <a href="article.php?id=<?php echo $m['Id_modèle'] ?>" class="carte">
             <div class="carte-image">
                 <?php if (!empty($m['image'])): ?>
-                    <img src="<?= $m['image'] ?>" alt="<?= $m['nom'] ?>" loading="lazy">
+                    <img src="<?php echo $m['image'] ?>" alt="<?= $m['nom'] ?>" loading="lazy">
                 <?php else: ?>
-                    <span class="carte-image-placeholder"><?= strtoupper(substr($m['nom'], 0, 2)) ?></span>
+                    <span class="carte-image-placeholder"><?php echo strtoupper(substr($m['nom'], 0, 2)) ?></span>
                 <?php endif; ?>
             </div>
             <div class="carte-corps">
-                <div class="carte-marque"><?= $m['marque'] ?></div>
-                <div class="carte-nom"><?= $m['nom'] ?></div>
-                <div class="carte-libelle"><?= $m['libelle'] ?></div>
+                <div class="carte-marque"><?php echo $m['marque'] ?></div>
+                <div class="carte-nom"><?php echo $m['nom'] ?></div>
+                <div class="carte-libelle"><?php echo $m['libelle'] ?></div>
                 <div class="carte-pied">
-                    <span class="carte-prix">À partir de <?= number_format($m['prix'], 2, ',', ' ') ?> €</span>
+                    <span class="carte-prix">À partir de <?php echo number_format($m['prix'], 2, ',', ' ') ?> €</span>
                     <span class="carte-categorie"><?= $m['categorie'] ?></span>
                 </div>
             </div>

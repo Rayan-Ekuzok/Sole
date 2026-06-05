@@ -24,7 +24,7 @@ function statutStyle($statut) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes commandes — SOLE</title>
+    <title>Mes commandes : SOLE</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,8 +36,8 @@ function statutStyle($statut) {
     <div class="entete-page">
         <h1 class="titre-principal">Mes commandes</h1>
         <p class="sous-titre-page">
-            Bonjour <?= htmlspecialchars($_SESSION['user_prenom']) ?>,
-            vous avez <?= count($commandes) ?> commande<?= count($commandes) > 1 ? 's' : '' ?>.
+            Bonjour <?php echo $_SESSION['user_prenom'] ?>,
+            vous avez <?php echo count($commandes) ?> commande<?= count($commandes) > 1 ? 's' : '' ?>.
         </p>
     </div>
 
@@ -55,8 +55,8 @@ function statutStyle($statut) {
         <div class="commande">
             <div class="entete-commande">
                 <div>
-                    <div class="numero-commande">Commande #<?= $c['Id_commande'] ?></div>
-                    <div class="date-commande"><?= date('d/m/Y à H:i', strtotime($c['date_commande'])) ?></div>
+                    <div class="numero-commande">Commande #<?php echo $c['Id_commande'] ?></div>
+                    <div class="date-commande"><?php echo date('d/m/Y à H:i', strtotime($c['date_commande'])) ?></div>
                 </div>
                 <div class="droite-commande">
                     <span class="badge-statut" style="background:<?= $style['bg'] ?>;color:<?= $style['color'] ?>">
@@ -74,12 +74,12 @@ function statutStyle($statut) {
                 <?php foreach ($lignes as $l): ?>
                 <div class="ligne-commande-detail">
                     <div>
-                        <div class="produit-ligne"><?= htmlspecialchars($l['marque'] . ' ' . $l['modele']) ?></div>
-                        <div class="detail-ligne"><?= htmlspecialchars($l['taille']) ?> · <?= htmlspecialchars($l['couleur']) ?></div>
+                        <div class="produit-ligne"><?php echo $l['marque'] . ' ' . $l['modele'] ?></div>
+                        <div class="detail-ligne"><?php echo$l['taille'] ?> · <?php echo $l['couleur'] ?></div>
                     </div>
                     <div class="droite-ligne">
-                        <div class="prix-ligne"><?= number_format($l['prix_unitaire'], 2, ',', ' ') ?> €</div>
-                        <div class="quantite-ligne">Qté : <?= $l['quantite'] ?></div>
+                        <div class="prix-ligne"><?php echo number_format($l['prix_unitaire'], 2, ',', ' ') ?> €</div>
+                        <div class="quantite-ligne">Qté : <?php echo $l['quantite'] ?></div>
                     </div>
                 </div>
                 <?php endforeach; ?>

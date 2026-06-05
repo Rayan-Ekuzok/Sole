@@ -23,7 +23,7 @@ unset($_SESSION['erreurs_register'], $_SESSION['donnees_register']);
         <div class="slogan-gauche">Votre boutique de chaussures</div>
     </div>
     <div class="texte-grand">JOIN<br>THE<br>SOLE</div>
-    <div class="texte-bas-gauche">© <?= date('Y') ?> SOLE.</div>
+    <div class="texte-bas-gauche">© <?PHP ECHO date('Y') ?> SOLE.</div>
 </div>
 
 <div class="panneau-droit">
@@ -33,7 +33,7 @@ unset($_SESSION['erreurs_register'], $_SESSION['donnees_register']);
 
         <?php if (!empty($erreurs)): ?>
         <div class="bloc-erreurs">
-            <ul><?php foreach ($erreurs as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul>
+            <ul><?php foreach ($erreurs as $e): ?><li><?PHP ECHO $e ?></li><?php endforeach; ?></ul>
         </div>
         <?php endif; ?>
 
@@ -42,17 +42,17 @@ unset($_SESSION['erreurs_register'], $_SESSION['donnees_register']);
             <div class="grille-deux-colonnes">
                 <div class="champ">
                     <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Dupont" value="<?= htmlspecialchars($donnees['nom'] ?? '') ?>" required>
+                    <input type="text" id="nom" name="nom" placeholder="Dupont" value="<?PHP ECHO $donnees['nom'] ?? '' ?>" required>
                 </div>
                 <div class="champ">
                     <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Marie" value="<?= htmlspecialchars($donnees['prenom'] ?? '') ?>" required>
+                    <input type="text" id="prenom" name="prenom" placeholder="Marie" value="<?PHP ECHO $donnees['prenom'] ?? '' ?>" required>
                 </div>
             </div>
 
             <div class="champ">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="exemple@mail.com" value="<?= htmlspecialchars($donnees['email'] ?? '') ?>" required>
+                <input type="email" id="email" name="email" placeholder="exemple@mail.com" value="<?PHP ECHO $donnees['email'] ?? '' ?>" required>
             </div>
 
             <div class="champ">
@@ -64,23 +64,23 @@ unset($_SESSION['erreurs_register'], $_SESSION['donnees_register']);
 
             <div class="champ">
                 <label for="adresse">Adresse</label>
-                <input type="text" id="adresse" name="adresse" placeholder="12 rue des Lilas" value="<?= htmlspecialchars($donnees['adresse'] ?? '') ?>" required>
+                <input type="text" id="adresse" name="adresse" placeholder="12 rue des Lilas" value="<?PHP ECHO $donnees['adresse'] ?? '' ?>" required>
             </div>
 
             <div class="grille-trois-colonnes">
                 <div class="champ">
                     <label for="code_postal">Code postal</label>
-                    <input type="text" id="code_postal" name="code_postal" placeholder="75011" value="<?= htmlspecialchars($donnees['code_postal'] ?? '') ?>" required>
+                    <input type="text" id="code_postal" name="code_postal" placeholder="75011" value="<?PHP ECHO $donnees['code_postal'] ?? '' ?>" required>
                 </div>
                 <div class="champ col-span-2">
                     <label for="ville">Ville</label>
-                    <input type="text" id="ville" name="ville" placeholder="Paris" value="<?= htmlspecialchars($donnees['ville'] ?? '') ?>" required>
+                    <input type="text" id="ville" name="ville" placeholder="Paris" value="<?PHP ECHO $donnees['ville'] ?? '' ?>" required>
                 </div>
             </div>
 
             <div class="champ">
                 <label for="pays">Pays</label>
-                <input type="text" id="pays" name="pays" placeholder="France" value="<?= htmlspecialchars($donnees['pays'] ?? 'France') ?>" required>
+                <input type="text" id="pays" name="pays" placeholder="France" value="<?PHP ECHO $donnees['pays'] ?? 'France' ?>" required>
             </div>
 
             <button type="submit" class="btn-soumettre">Créer mon compte</button>

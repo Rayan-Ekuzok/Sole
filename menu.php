@@ -69,7 +69,7 @@ if (isset($_SESSION['succes_inscription'])) {
             </li>
             <li class="nav-user">
                 <span class="nom-utilisateur">
-                    👤 <?= htmlspecialchars($_SESSION['user_prenom'] . ' ' . substr($_SESSION['user_nom'], 0, 1) . '.') ?>
+                    <?php echo $_SESSION['user_prenom'] . ' ' . substr($_SESSION['user_nom'], 0, 1) . '.' ?>
                 </span>
             </li>
             <li>
