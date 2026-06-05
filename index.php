@@ -33,18 +33,18 @@ $modeles = getModeles();
         <a href="article.php?id=<?= $m['Id_modèle'] ?>" class="carte">
             <div class="carte-image">
                 <?php if (!empty($m['image'])): ?>
-                    <img src="<?= htmlspecialchars($m['image']) ?>" alt="<?= htmlspecialchars($m['nom']) ?>" loading="lazy">
+                    <img src="<?= $m['image'] ?>" alt="<?= $m['nom'] ?>" loading="lazy">
                 <?php else: ?>
                     <span class="carte-image-placeholder"><?= strtoupper(substr($m['nom'], 0, 2)) ?></span>
                 <?php endif; ?>
             </div>
             <div class="carte-corps">
-                <div class="carte-marque"><?= htmlspecialchars($m['marque']) ?></div>
-                <div class="carte-nom"><?= htmlspecialchars($m['nom']) ?></div>
-                <div class="carte-libelle"><?= htmlspecialchars($m['libelle']) ?></div>
+                <div class="carte-marque"><?= $m['marque'] ?></div>
+                <div class="carte-nom"><?= $m['nom'] ?></div>
+                <div class="carte-libelle"><?= $m['libelle'] ?></div>
                 <div class="carte-pied">
                     <span class="carte-prix">À partir de <?= number_format($m['prix'], 2, ',', ' ') ?> €</span>
-                    <span class="carte-categorie"><?= htmlspecialchars($m['categorie']) ?></span>
+                    <span class="carte-categorie"><?= $m['categorie'] ?></span>
                 </div>
             </div>
         </a>

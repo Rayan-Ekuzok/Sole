@@ -32,7 +32,7 @@ unset($_SESSION['erreurs_login']);
 
         <?php if (!empty($erreurs)): ?>
         <div class="bloc-erreurs">
-            <ul><?php foreach ($erreurs as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul>
+            <ul><?php foreach ($erreurs as $e): ?><li><?= $e ?></li><?php endforeach; ?></ul>
         </div>
         <?php endif; ?>
 
