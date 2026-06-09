@@ -1,8 +1,12 @@
 <?php
 session_start();
-require_once 'bdd.php';
+include_once 'bdd.php';
 
 $modeles = getModeles();
+$Limite = getModeleLimite();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,12 +19,73 @@ $modeles = getModeles();
 </head>
 <body>
 
+<?php 
+
+?>
+
 <?php require_once 'menu.php'; ?>
+<?php if (empty($Limite)): ?>
+<section class="hero">
+    <h1 class="titre-hero">Notre<br>Catalogue <br>En édition limité</h1>
+    <span class="compteur-hero"><?= count($Limite) ?> modèle<?= count($Limite) > 1 ? 's' : '' ?></span>
+</section>
+<?php endif; ?>
+
+
+
+
+
+<section class="catalogue">
+    <?php if (empty($Limite)): ?>
+        <div class="etat-vide">
+            <span class="etat-vide-grand">SOLE</span>
+            <p>Aucun produit disponible pour le moment.</p>
+        </div>
+    <?php else: ?>
+        <?php foreach ($Limite as $l): ?>
+        <a href="article.php?id=<?php echo $l['Id_modèle'] ?>" class="carte">
+            <div class="carte-image">
+                <?php if (!empty($l['image'])): ?>
+                    <img src="<?php echo $l['image'] ?>" alt="<?= $l['nom'] ?>" loading="lazy">
+                <?php else: ?>
+                    <span class="carte-image-placeholder"><?php echo strtoupper(substr($l['nom'], 0, 2)) ?></span>
+                <?php endif; ?>
+            </div>
+            <div class="carte-corps">
+                <div class="carte-marque"><?php echo $l['libelle'] ?></div>
+                <div class="carte-nom"><?php echo $l['nom'] ?></div>
+                <div class="carte-libelle"><?php echo $l['marque'] ?></div>
+                <div class="carte-pied">
+                    <span class="carte-prix">À partir de <?php echo number_format($l['prix'], 2, ',', ' ') ?> €</span>
+                    <span class="carte-categorie"><?= $l['categorie'] ?></span>
+                </div>
+            </div>
+        </a>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section class="hero">
     <h1 class="titre-hero">Notre<br>Catalogue</h1>
     <span class="compteur-hero"><?= count($modeles) ?> modèle<?= count($modeles) > 1 ? 's' : '' ?></span>
 </section>
+
+
 
 <section class="catalogue">
     <?php if (empty($modeles)): ?>
@@ -51,6 +116,7 @@ $modeles = getModeles();
         <?php endforeach; ?>
     <?php endif; ?>
 </section>
+
 
 </body>
 </html>

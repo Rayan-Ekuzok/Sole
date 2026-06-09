@@ -10,13 +10,19 @@ if (!$modele) { header('Location: index.php'); exit; }
 
 $exemplaires = getExemplairesByModele($id);
 $avis        = getAvisByModele($id);
-
+$mesQuantite = getQuantiteByModele($id);
 $tailles  = [];
 $couleurs = [];
+
+
+
+
 foreach ($exemplaires as $e) {
     $tailles[$e['Id_taille']]   = $e['taille'];
     $couleurs[$e['Id_couleur']] = $e['couleur'];
 }
+
+
 
 $note_moy = 0;
 if (!empty($avis)) {
@@ -98,6 +104,12 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <?php endif; ?>
 
+        <div>
+            <p>Quantite</p>
+            <?= $mesQuantite[0]['SUM(e.quantite)']?>
+
+        </div>
+
         <p class="produit-description"><?= nl2br(htmlspecialchars($modele['description'])) ?></p>
 
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -122,8 +134,25 @@ if (isset($_SESSION['user_id'])) {
         <p class="info-stock" id="info-stock">
             <?= empty($exemplaires) ? 'Rupture de stock totale' : '' ?>
         </p>
+
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section class="section-avis">
     <div class="entete-avis">
@@ -246,7 +275,7 @@ function mettreAJourInterface() {
         if (input) input.value = ex.Id_exemplaire;
         const prixFinal = parseFloat(ex.prix_final).toFixed(2).replace('.', ',');
         prix.textContent = prixFinal + ' €';
-        info.textContent = ex.quantite <= 3 ? `Plus que ${ex.quantite} en stock !` : 'En stock';
+        info.textContent = ex.quantite <= 1 ? `Plus que ${ex.quantite} en stock !` : 'En stock,  !';
     } else if (tailleSelectionnee || couleurSelectionnee) {
         btn.disabled = true;
         btn.textContent = 'Rupture de stock';

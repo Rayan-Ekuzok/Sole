@@ -53,6 +53,48 @@ function getModeles() {
     return $stmt->fetchAll();
 }
 
+
+
+
+
+
+
+
+
+
+
+function getModeleLimite (){
+    $pdo = getConnexion();
+    $stmt = $pdo->prepare("
+  
+          SELECT *,
+          marque.libelle AS 'marque',
+          categorie.libelle AS 'categorie'
+
+   FROM editionlimite, modèle, limite, categorie, marque
+   WHERE editionlimite.id_editionLimite = limite.Id_editionLimite
+   AND categorie.Id_categorie = modèle.Id_categorie
+   AND modèle.id_modèle = limite.Id_modèle
+   AND marque.Id_marque = modèle.id_marque
+    ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Un modèle par son ID
 function getModeleById($id) {
     $pdo = getConnexion();
@@ -87,6 +129,46 @@ function getExemplairesByModele($id_modele) {
     $stmt->execute([':id' => $id_modele]);
     return $stmt->fetchAll();
 }
+
+
+
+
+
+
+
+function getQuantiteByModele($id_modele) {
+    $pdo = getConnexion();
+    $stmt = $pdo->prepare("
+        SELECT  SUM(e.quantite)
+        FROM exemplaire e
+
+        JOIN modèle  m  ON e.Id_modèle  = m.Id_modèle
+        JOIN taille  t  ON e.Id_taille  = t.Id_taille
+        JOIN couleur co ON e.Id_couleur = co.Id_couleur
+        WHERE e.Id_modèle = :id AND e.quantite > 0
+        ORDER BY t.libelle, co.libelle;
+
+    ");
+    $stmt->execute([':id' => $id_modele]);
+    return $stmt->fetchAll();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Un exemplaire par son ID
 function getExemplaireById($id) {

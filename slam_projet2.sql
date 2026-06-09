@@ -620,3 +620,94 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE editionLimite(
+   Id_editionLimite INT AUTO_INCREMENT,
+   libelle VARCHAR(50) ,
+   dateDebut DATETIME,
+   dateFin DATETIME,
+   PRIMARY KEY(Id_editionLimite)
+);
+
+CREATE TABLE Limite(
+   Id_modèle INT,
+   Id_editionLimite INT,
+   quantiteLimite INT,
+   PRIMARY KEY(Id_modèle, Id_editionLimite),
+   FOREIGN KEY(Id_modèle) REFERENCES modèle(Id_modèle),
+   FOREIGN KEY(Id_editionLimite) REFERENCES editionLimite(Id_editionLimite)
+);
+
+
+
+
+SELECT  SUM(e.quantite)
+        FROM exemplaire e
+
+        JOIN modèle  m  ON e.Id_modèle  = m.Id_modèle
+        JOIN taille  t  ON e.Id_taille  = t.Id_taille
+        JOIN couleur co ON e.Id_couleur = co.Id_couleur
+        WHERE e.Id_modèle = 1 AND e.quantite > 0
+        ORDER BY t.libelle, co.libelle;
+
+
+
+
+
+INSERT INTO `editionLimite` (`Id_editionLimite`, `libelle`, `dateDebut`, `dateFin`) VALUES
+(1, 'Pour les pro', '2025-01-20 00:00:00', '2026-12-20 00:00:00'),
+(2, "Belle chaussure", '2025-01-20 00:00:00', '2026-12-25 00:00:00'),
+
+
+
+
+INSERT INTO `Limite` (`Id_modèle`, `Id_editionLimite`, `quantiteLimite`) VALUES
+(1, 1, 5),
+(2, 2, 7),
+
+
+
+
+SELECT * 
+   FROM editionlimite, modèle, limite
+   WHERE editionlimite.id_editionLimite = limite.Id_editionLimite
+   AND modèle.id_modèle = limite.Id_modèle;
+
+
+SELECT modèle.id_modèle, modèle.nom, modèle.actif, modèle.prix, modèle.description, modèle.libelle, modèle.image, modèle.id_categorie, modèle.id_marque
+   FROM editionlimite, modèle, limite
+   WHERE editionlimite.id_editionLimite = limite.Id_editionLimite
+   AND modèle.id_modèle = limite.Id_modèle;
+
+
